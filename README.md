@@ -8,59 +8,66 @@ Promotions are a pivotal aspect of retail strategy, especially during festive se
 
 ## Data Sources
 
-The analysis is based on data provided by AtliQ team. The main datasets provided include fact_events, dim_products, dim_stores, and sales_summary. These datasets contain information about product sales, store locations, promotional events, and campaign revenues.
+The analysis is based on data provided by the AtliQ team. The main datasets include:
+- **fact_events**
+- **dim_products**
+- **dim_stores**
+- **sales_summary**
 
-## Project Overview:
+These datasets contain information about product sales, store locations, promotional events, and campaign revenues.
 
-1. Conducted a detailed analysis of promotional campaigns during Diwali 2023 and Sankranti 2024 using AtliQ Mart's internal data.
-2.Executed SQL queries to address key business requests focused on product, store, and campaign performance.
-3.Identified high-value products, analyzed store distribution, and evaluated the effectiveness of various promotion types.
-4.Generated actionable insights to optimize future marketing strategies and improve overall sales performance.
+## Project Overview
+
+1. Analyzed promotional campaigns during Diwali 2023 and Sankranti 2024 using internal data from AtliQ Mart.
+2. Executed SQL queries to address key business requests focused on product, store, and campaign performance.
+3. Identified high-value products, analyzed store distribution, and evaluated the effectiveness of various promotion types.
+4. Generated actionable insights to optimize future marketing strategies and improve overall sales performance.
 
 ## Business Requests
 
 ### 1. High-Value Products in BOGOF Promotion
 **Query:**
-Provide a list of products with a base price greater than 500 and that are featured in the promo type of 'BOGOF' (Buy One Get One Free).
+Provide a list of products with a base price greater than 500 that are featured in the promo type of 'BOGOF' (Buy One Get One Free).
 
 **Purpose:**
-Identify high-value products that are currently being heavily discounted, which can be useful for evaluating pricing and promotion strategies.
+Identify high-value products that are heavily discounted to evaluate pricing and promotion strategies.
 
 ### 2. Store Count by City
 **Query:**
-Generate a report that provides an overview of the number of stores in each city. The results will be sorted in descending order of store counts.
+Generate a report that provides an overview of the number of stores in each city, sorted in descending order of store counts.
 
 **Purpose:**
-Identify the cities with the highest store presence, assisting in optimizing retail operations.
+Identify cities with the highest store presence to assist in optimizing retail operations.
 
 ### 3. Campaign Revenue Impact
 **Query:**
-Generate a report that displays each campaign along with the total revenue generated before and after the campaign.
+Generate a report displaying each campaign along with the total revenue generated before and after the campaign.
+
 **Purpose:**
 Evaluate the financial impact of promotional campaigns.
 
-### 4. Campaign Revenue Impact
+### 4. Diwali Campaign ISU% by Category
 **Query:**
-Produce a report that calculates the Incremental Sold Quantity (ISU%) for each category during the Diwali campaign. Provide rankings for the categories based on their ISU%.
+Produce a report that calculates the Incremental Sold Quantity (ISU%) for each category during the Diwali campaign and provide rankings based on ISU%.
+
 **Purpose:**
 Assess the category-wise success and impact of the Diwali campaign on incremental sales.
 
 ### 5. Top 5 Products by IR%
 **Query:**
-Create a report featuring the Top 5 products, ranked by Incremental Revenue Percentage (IR%), across all campaigns.n.
-**Purpose:**
-Identify the most successful products in terms of incremental revenue across campaigns, assisting in product optimization.
+Create a report featuring the Top 5 products, ranked by Incremental Revenue Percentage (IR%), across all campaigns.
 
+**Purpose:**
+Identify the most successful products in terms of incremental revenue across campaigns to assist in product optimization.
 
 ## Results and Insights
 
 The analysis revealed several key insights:
-
--Identify high-value BOGOF products and assess their impact on discounting strategies.
--Determine top and bottom-performing stores based on incremental revenue and sold units, and analyze city-wise store performance.
--Evaluate promotion types to find the most effective for revenue generation and the least impactful on sold units.
--Analyze product categories and specific products for significant sales lifts from promotions and their responsiveness to different promotion types.
--Review revenue impact before and after campaigns and rank categories and products by incremental sales and revenue percentage.
+- Identify high-value BOGOF products and assess their impact on discounting strategies.
+- Determine top and bottom-performing stores based on incremental revenue and sold units, and analyze city-wise store performance.
+- Evaluate promotion types to find the most effective for revenue generation and the least impactful on sold units.
+- Analyze product categories and specific products for significant sales lifts from promotions and their responsiveness to different promotion types.
+- Review revenue impact before and after campaigns and rank categories and products by incremental sales and revenue percentage.
 
 These insights can help AtliQ Mart make informed decisions for future promotional activities, optimize resource allocation, and improve overall sales performance.
 
@@ -70,23 +77,20 @@ Overall, the analysis provides valuable insights into the performance of promoti
 
 ## Additional Insights
 
-In addition to the main business requests, the following recommended insights were explored during the analysis:
+In addition to the main business requests, the following recommended insights were explored:
 
 ### Store Performance Analysis
-
-- **Top 10 Stores by Incremental Revenue (IR):** Identify the top-performing stores in terms of incremental revenue generated from promotions.
-- **Bottom 10 Stores by Incremental Sold Units (ISU):** Identify the stores with the lowest performance in terms of incremental sold units during the promotional period.
-- **City-wise Store Performance:** Analyze how store performance varies by city and identify any common characteristics among top-performing stores.
+- **Top 10 Stores by Incremental Revenue (IR):** Identify stores with the highest additional revenue from promotions.
+- **Bottom 10 Stores by Incremental Sold Units (ISU):** Identify stores with the least increase in sold units.
+- **City-wise Store Performance:** Analyze performance variations by city and identify characteristics of top-performing stores.
 
 ### Promotion Type Analysis
-
-- **Top 2 Promotion Types by Incremental Revenue:** Determine the top-performing promotion types that resulted in the highest incremental revenue.
-- **Bottom 2 Promotion Types by Incremental Sold Units:** Identify the least effective promotion types in terms of their impact on incremental sold units.
-- **Comparison of Promotion Types:** Analyze the performance differences between discount-based promotions, BOGOF (Buy One Get One Free), and cashback promotions.
-- **Optimal Promotion Type:** Determine which promotions strike the best balance between incremental sold units and maintaining healthy margins.
+- **Top 2 Promotion Types by Incremental Revenue:** Determine which promotions generated the highest additional revenue.
+- **Bottom 2 Promotion Types by Incremental Sold Units:** Identify promotions with the least impact on sold units.
+- **Comparison of Promotion Types:** Assess differences among discount, BOGOF, and cashback promotions.
+- **Optimal Promotion Balance:** Find promotions that balance high sales with good margins.
 
 ### Product and Category Analysis
-
-- **High-Lifting Product Categories:** Identify product categories that saw significant increases in sales from the promotions.
-- **Product Responsiveness to Promotions:** Analyze specific products that respond exceptionally well or poorly to promotions.
-- **Correlation between Product Category and Promotion Type 
+- **High-Lifting Product Categories:** Identify categories with the largest sales increase from promotions.
+- **Product Responsiveness to Promotions:** Determine which products performed exceptionally well or poorly.
+- **Correlation Between Product Category and Promotion Type:** Analyze how different categories respond to various promotion types.
