@@ -29,6 +29,16 @@ These datasets contain information about product sales, store locations, promoti
 **Query:**
 Provide a list of products with a base price greater than 500 that are featured in the promo type of 'BOGOF' (Buy One Get One Free).
 
+```sql
+select distinct(E.product_code),
+	   product_name
+from events_cleaned as E
+inner join products_cleand as P
+	on E.product_code=P.product_code
+	where E.Promo_type='BOGOF'
+	And E.base_price>500;
+```
+
 **Purpose:**
 Identify high-value products that are heavily discounted to evaluate pricing and promotion strategies.
 
@@ -36,6 +46,13 @@ Identify high-value products that are heavily discounted to evaluate pricing and
 **Query:**
 Generate a report that provides an overview of the number of stores in each city, sorted in descending order of store counts.
 
+```sql
+SELECT COUNT(store_id) AS `Number Of Stores`,
+       city AS City
+FROM stores_cleaned
+GROUP BY city
+ORDER BY COUNT(store_id) DESC;
+```
 **Purpose:**
 Identify cities with the highest store presence to assist in optimizing retail operations.
 
@@ -43,6 +60,15 @@ Identify cities with the highest store presence to assist in optimizing retail o
 **Query:**
 Generate a report displaying each campaign along with the total revenue generated before and after the campaign.
 
+```sql
+select campaign_name as Campaign,
+       concat((round(sum(`Revenue Before`)/1000000,0)),' ','M') as `Revenue Before`,
+       concat((round(sum(`Revenue After`)/1000000,0)),' ','M') as `Revenue After`
+from events_updated as E
+inner join campaigns_cleaned as C
+	on E.campaign_id=C.campaign_id
+	Group by C.campaign_name;
+```
 **Purpose:**
 Evaluate the financial impact of promotional campaigns.
 
@@ -50,12 +76,39 @@ Evaluate the financial impact of promotional campaigns.
 **Query:**
 Produce a report that calculates the Incremental Sold Quantity (ISU%) for each category during the Diwali campaign and provide rankings based on ISU%.
 
+```sql
+select category as Category,
+       `Incremental Sold Units Percentage`,
+       rank() over(order by `Incremental Sold Units Percentage` desc) as Ranks
+from events_updated as E
+inner join products_cleand as P
+	on E.Product_code=P.Product_code
+inner join campaigns_cleaned as C
+	on E.Campaign_id=C.Campaign_id
+	where Campaign_name='Diwali';
+```
+
 **Purpose:**
 Assess the category-wise success and impact of the Diwali campaign on incremental sales.
 
 ### 5. Top 5 Products by IR%
 **Query:**
 Create a report featuring the Top 5 products, ranked by Incremental Revenue Percentage (IR%), across all campaigns.
+
+```sql
+select Ranks,
+	   `Product Name`,
+       Category,
+       `IR %`
+from ( select product_name as `Product Name`,
+       category as `Category`,
+	   `Incremental Revenue %` as `IR %`,
+       rank() over(order by `Incremental Revenue` desc) as Ranks
+from events_updated as E
+		inner join products_cleand as P
+		on P.Product_code=E.Product_code) as I
+where ranks<=5;
+```
 
 **Purpose:**
 Identify the most successful products in terms of incremental revenue across campaigns to assist in product optimization.
