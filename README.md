@@ -47,11 +47,11 @@ Identify high-value products that are heavily discounted to evaluate pricing and
 Generate a report that provides an overview of the number of stores in each city, sorted in descending order of store counts.
 
 ```sql
-SELECT COUNT(store_id) AS `Number Of Stores`,
-       city AS City
-FROM stores_cleaned
-GROUP BY city
-ORDER BY COUNT(store_id) DESC;
+select count(store_id) as `Number Of Stores`,
+	   city as City
+from stores_cleaned
+	group by city
+	order by count(store_id) desc;
 ```
 **Purpose:**
 Identify cities with the highest store presence to assist in optimizing retail operations.
