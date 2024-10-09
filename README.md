@@ -146,4 +146,4 @@ In addition to the main business requests, the following recommended insights we
 ### Product and Category Analysis
 - **High-Lifting Product Categories:** Identify categories with the largest sales increase from promotions.
 - **Product Responsiveness to Promotions:** Determine which products performed exceptionally well or poorly.
-- **Correlation Between Product Category and Promotion Type:** Analyze how different categories respond to various promotion types.
+- **Correlation Between Product Category and Promotion Type:** Analyze how different categories respond to various promotion types
